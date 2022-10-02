@@ -7,10 +7,10 @@ void decimal_to_binary(int n, bool *binary);
 void print_binary(int a);
 
 /**
-  Stores the binary representation of `n` in the `binary` array, using the
-  little endian order
+  Stores the binary representation of the unsigned int `n` in the `binary`
+  array, using the little endian order
 */
-inline void decimal_to_binary(int n, bool binary[]) {
+inline void decimal_to_binary(unsigned int n, bool binary[]) {
   for (int i = 0; i < bit_per_byte * sizeof(int); i++) {
     binary[i] = n % 2;
     n /= 2;
