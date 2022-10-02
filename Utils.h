@@ -17,7 +17,11 @@ inline void decimal_to_binary(int n, bool binary[]) {
   }
 }
 
-inline void print_binary(int a) {
+/**
+  Prints the binary representation of the unsigned int `a` in the big endian
+  order
+*/
+inline void print_binary(unsigned int a) {
   bool binary[bit_per_byte * sizeof(int)];
   decimal_to_binary(a, binary);
   int len = bit_per_byte * sizeof(int);
