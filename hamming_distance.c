@@ -1,8 +1,8 @@
-#include "Utils.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "Utils.h"
 #define MAX_INPUT_SIZE 30
 
 typedef enum { PAIR_OF_POSITIVE_INTS, NEGATIVE_INT } InputState;
@@ -12,13 +12,16 @@ typedef enum { PAIR_OF_POSITIVE_INTS, NEGATIVE_INT } InputState;
   and int `b`
 */
 int hamming_distance(int a, int b) {
-  int counter = 0;
-  bool binary_a[bit_per_byte * sizeof(int)];
-  bool binary_b[bit_per_byte * sizeof(int)];
+  // Get the binary representations of a and b
+  const int size = bit_per_byte * sizeof(int);
+  bool binary_a[size];
+  bool binary_b[size];
   decimal_to_binary(a, binary_a);
   decimal_to_binary(b, binary_b);
 
-  for (int i = 0; i < bit_per_byte * sizeof(int); i++) {
+  // Compare bit by bit
+  int counter = 0;
+  for (int i = 0; i < size; i++) {
     if (binary_a[i] != binary_b[i]) {
       counter++;
     }
