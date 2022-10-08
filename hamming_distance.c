@@ -61,17 +61,17 @@ InputType take_input(int *ptr_a, int *ptr_b) {
 int main(void) {
   int a;
   int b;
-
+  printf("----------Hamming Distance Calculator----------\n");
   printf("Enter pairs of positive integers (separated by a space), and a "
          "negative (non-zero) integer to stop.\n\n");
 
   while (true) {
-    printf("Enter a and b: ");
+    printf("Enter input: ");
     if (take_input(&a, &b) == NEGATIVE_INT) {
       printf("Negative input: process terminated\n");
       break;
     }
-    printf("Hdist(%d, %d) = %d\n\n", a, b, hamming_distance(a, b));
+    printf("HammingDist(%d, %d) = %d\n\n", a, b, hamming_distance(a, b));
   }
   return 0;
 }
