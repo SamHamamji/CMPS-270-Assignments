@@ -5,7 +5,7 @@
 #include "Utils.h"
 #define MAX_INPUT_SIZE 30
 
-typedef enum { PAIR_OF_POSITIVE_INTS, NEGATIVE_INT } InputState;
+typedef enum { PAIR_OF_POSITIVE_INTS, NEGATIVE_INT } InputType;
 
 /**
   @returns the hamming distance between the binary representations of int `a`
@@ -14,8 +14,7 @@ typedef enum { PAIR_OF_POSITIVE_INTS, NEGATIVE_INT } InputState;
 int hamming_distance(int a, int b) {
   // Get the binary representations of a and b
   const int size = bit_per_byte * sizeof(int);
-  bool binary_a[size];
-  bool binary_b[size];
+  bool binary_a[size], binary_b[size];
   decimal_to_binary(a, binary_a);
   decimal_to_binary(b, binary_b);
 
@@ -33,20 +32,20 @@ int hamming_distance(int a, int b) {
   Asks for input and stores the input in `ptr_a` and `ptr_b`
   @returns the state of the input (PAIR_OF_POSITIVE_INTS or NEGATIVE_INT)
 */
-InputState take_input(int *ptr_a, int *ptr_b) {
+InputType take_input(int *ptr_a, int *ptr_b) {
   char input[MAX_INPUT_SIZE];
   fgets(input, sizeof(input), stdin);
+
   if (sscanf(input, "%d %d", ptr_a, ptr_b) == 2) {
-    if (*ptr_a < 0 || *ptr_b < 0) {
+    if (*ptr_a < 0 || *ptr_b < 0)
       return NEGATIVE_INT;
-    }
     return PAIR_OF_POSITIVE_INTS;
-  } else if (sscanf(input, "%d", ptr_a) == 1 && *ptr_a < 0) {
-    return NEGATIVE_INT;
-  } else {
-    printf("INVALID INPUT! Try again: ");
-    return take_input(ptr_a, ptr_b);
   }
+  if (sscanf(input, "%d", ptr_a) == 1 && *ptr_a < 0) {
+    return NEGATIVE_INT;
+  }
+  printf("INVALID INPUT! Try again: ");
+  return take_input(ptr_a, ptr_b);
 }
 
 /**
