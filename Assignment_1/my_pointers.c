@@ -63,6 +63,7 @@ int main(void) {
   printf("]\n");
   char **merged = merge(array1, size1, array2, size2);
 
+  printf("Merged array: \n");
   for (int i = 0; i < size1 + size2; i++) {
     printf("%s\n", merged[i]);
   }
