@@ -5,13 +5,19 @@
 #define SIZE 10
 const int POSSIBLE_VALUES[3] = {1, 2, 3};
 
-void printIntArray(int *array) {
+/**
+  Prints the int* `array` to the stdout as a table
+*/
+void printArray(int *array) {
   printf("Index Value\n");
   for (int i = 0; i < SIZE; i++) {
     printf("%5d %5d\n", i, array[i]);
   }
 }
 
+/**
+  Prints the int* `array` to the stdout as a histogram
+*/
 void arrayHistogram(int array[]) {
   printf("Value Frequency Histogram\n");
   char stars[9];
@@ -32,12 +38,21 @@ void arrayHistogram(int array[]) {
   }
 }
 
+/**
+  Changes the int[] `array` by swapping the elements at `index1` and `index2`
+*/
 void swapValues(int array[], int index1, int index2) {
   int temp = array[index1];
   array[index1] = array[index2];
   array[index2] = temp;
 }
 
+/**
+  Sorts the int[] `array` using bubbleSort
+  @tested:
+    empty array / singleton
+    array with identical elements
+*/
 void bubbleSort(int array[]) {
   for (int i = 0; i < SIZE; i++)
     for (int j = 0; j < i; j++)
@@ -45,6 +60,13 @@ void bubbleSort(int array[]) {
         swapValues(array, i, j);
 }
 
+/**
+  @returns a double representing the median of the int[] `array`
+  @tested:
+    odd/even array length
+    median is an integer: {1, 1, 1, 1, 2, 2, 2, 2, 3, 3}
+    median is a decimal: {1, 1, 1, 1, 1, 2, 2, 2, 3, 3}
+*/
 double median(int array[]) {
   int copy[SIZE];
   for (int i = 0; i < SIZE; i++) {
@@ -56,6 +78,11 @@ double median(int array[]) {
                          : (copy[middle] + copy[middle + 1]) / 2.;
 }
 
+/**
+  @returns an int representing the first occuring mode of the int[] `array`
+  @tested:
+    completely separate
+*/
 int mode(int array[]) {
   struct counter {
     int value;
@@ -100,13 +127,13 @@ int main(void) {
 
   printf("\n");
   printf("The array is%s sorted\n", (isSorted(array)) ? "" : " not");
-  printIntArray(array);
+  printArray(array);
 
   printf("\n");
   printf("Sorting...\n");
   bubbleSort(array);
   printf("The array is%s sorted\n", (isSorted(array)) ? "" : " not");
-  printIntArray(array);
+  printArray(array);
 
   printf("\n");
   printf("Median: %f\n", median(array));
