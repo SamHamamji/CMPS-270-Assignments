@@ -8,11 +8,13 @@
 /**
   @requires:
     input between 0 and 2,147,483,647 inclusive
+    if input is 0, -1 is returned
   @tested:
-    0 and 2,147,483,647
-    odd, even, TODO
+    1 and 2,147,483,647
+    odd, even, big numbers, small numbers
+    powers of 2, powers of 2 +1 or -1
   @returns
-    the position of the msb that is set to 1
+    the position of the most significant bit that is set to 1
 */
 int msb(unsigned int n) {
   bool binary[bit_per_byte * sizeof(int)];
@@ -26,7 +28,15 @@ int msb(unsigned int n) {
 }
 
 /**
-  @returns the lsb of the number
+  @requires:
+    input between 0 and 2,147,483,647 inclusive
+    if input is 0, -1 is returned
+  @tested:
+    1 and 2,147,483,647
+    odd, even, big numbers, small numbers
+    powers of 2, powers of 2 +1 or -1
+  @returns
+    the position of the least significant bit that is set to 1
 */
 int lsb(unsigned int n) {
   bool binary[sizeof(int) * bit_per_byte];
@@ -43,6 +53,7 @@ int lsb(unsigned int n) {
   Asks the user to enter a positive non-zero integer and then outputs the
   distance between the first and last bits set to 1.
   @expects:
+    input between 1 and 2,147,483,647 inclusive
 */
 int main(void) {
   char input[MAX_INPUT_SIZE];
@@ -50,11 +61,11 @@ int main(void) {
 
   printf("Enter a positive non-zero integer: ");
   fgets(input, sizeof(input), stdin);
-  while (sscanf(input, "%u", &n) != 1 || n == 0) {
+  while (sscanf(input, "%u", &n) != 1 || n <= 0) {
     printf("INVALID INPUT! Try again: ");
     fgets(input, sizeof(input), stdin);
   }
-
+  print_binary(n);
   printf("msb(%u)-lsb(%u) = %d\n", n, n, msb(n) - lsb(n));
   return 0;
 }
