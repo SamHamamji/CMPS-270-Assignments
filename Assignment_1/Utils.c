@@ -19,3 +19,15 @@ void print_binary(unsigned int a) {
     printf("%d", binary[j]);
   }
 }
+
+void printStringArray(char **array, int size) {
+  printf("{");
+  for (int i = 0; i < size; i++) {
+    if (i == size - 1) {
+      printf("\"%s\"", array[i]);
+    } else {
+      printf("\"%s\", ", array[i]);
+    }
+  }
+  printf("}\n");
+}

@@ -2,21 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "Utils.h"
+
 #define MAX_WORD_LENGTH 64
 #define SENTENCES_NUMBER 3
 #define WORDS_NUMBER 4
-
-void printStringArray(char **array, int size) {
-  printf("{");
-  for (int i = 0; i < size; i++) {
-    if (i == size - 1) {
-      printf("\"%s\"", array[i]);
-    } else {
-      printf("\"%s\", ", array[i]);
-    }
-  }
-  printf("}\n");
-}
 
 /**
   @returns a 1D array containing the concatenation of elements in each element

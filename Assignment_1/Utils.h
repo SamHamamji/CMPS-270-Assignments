@@ -17,4 +17,9 @@ void decimal_to_binary(int n, bool binary[]);
 */
 void print_binary(unsigned int a);
 
+/**
+  Prints the char** `array` to the stdout as a list of strings
+*/
+void printStringArray(char **array, int size);
+
 #endif
