@@ -122,6 +122,7 @@ int isSorted(int array[]) {
   Function that tests all the previous functions
 */
 int main(void) {
+  printf("---------- MSB and LSB ----------\n");
   int array[SIZE] = {1, 2, 1, 3, 1, 1, 1, 3, 2, 2};
   arrayHistogram(array);
 

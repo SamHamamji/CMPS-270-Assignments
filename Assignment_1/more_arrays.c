@@ -49,6 +49,7 @@ char **concat(char *array[SENTENCES_NUMBER][MAX_WORD_LENGTH], unsigned int rows,
   `SENTENCES_NUMBER` and `WORDS_NUMBER`
 */
 int main(void) {
+  printf("---------- More Arrays ----------\n");
   char *array[WORDS_NUMBER][MAX_WORD_LENGTH] = {{"I", "LOVE", "CODING", ":)"},
                                                 {"I", "am", "DONE", ":0"},
                                                 {"THIS", "IS", "SPARTA", "!"}};

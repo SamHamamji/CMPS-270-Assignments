@@ -56,6 +56,7 @@ int lsb(unsigned int n) {
     input between 1 and 2,147,483,647 inclusive
 */
 int main(void) {
+  printf("---------- Arrays ----------\n");
   char input[MAX_INPUT_SIZE];
   unsigned int n;
 
