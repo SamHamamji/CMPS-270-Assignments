@@ -24,7 +24,7 @@ gcc -o a.out my_pointers.c && ./a.out
 ```
 Exercise 5:
 ```shell
-gcc -o a.out more_arrays.c && ./a.out
+gcc -o a.out Utils.c more_arrays.c && ./a.out
 ```
 ## License
 Licensed under the [MIT](LICENSE) license.
