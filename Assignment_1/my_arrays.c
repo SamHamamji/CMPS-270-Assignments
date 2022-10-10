@@ -5,7 +5,7 @@
 #define SIZE 10
 const int POSSIBLE_VALUES[3] = {1, 2, 3};
 
-void printArray(int *array) {
+void printIntArray(int *array) {
   printf("Index Value\n");
   for (int i = 0; i < SIZE; i++) {
     printf("%5d %5d\n", i, array[i]);
@@ -81,6 +81,9 @@ int mode(int array[]) {
   return mode.value;
 }
 
+/**
+  @returns whether the array is sorted
+*/
 int isSorted(int array[]) {
   for (int i = 0; i < SIZE - 1; i++)
     if (array[i] > array[i + 1])
@@ -88,19 +91,22 @@ int isSorted(int array[]) {
   return 1;
 }
 
+/**
+  Function that tests all the previous functions
+*/
 int main(void) {
   int array[SIZE] = {1, 2, 1, 3, 1, 1, 1, 3, 2, 2};
   arrayHistogram(array);
 
   printf("\n");
   printf("The array is%s sorted\n", (isSorted(array)) ? "" : " not");
-  printArray(array);
+  printIntArray(array);
 
   printf("\n");
   printf("Sorting...\n");
   bubbleSort(array);
   printf("The array is%s sorted\n", (isSorted(array)) ? "" : " not");
-  printArray(array);
+  printIntArray(array);
 
   printf("\n");
   printf("Median: %f\n", median(array));
