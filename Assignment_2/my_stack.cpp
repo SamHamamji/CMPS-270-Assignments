@@ -1,7 +1,4 @@
-#include <cstdlib>
 #include <iostream>
-#include <iterator>
-#include <string>
 #include <vector>
 
 using namespace std;
@@ -11,8 +8,16 @@ private:
   vector<T> list;
 
 public:
+  /**
+    @returns a bool representing whether the stack is empty or not
+  */
   bool empty() const { return list.size() == 0; }
 
+  /**
+    Pushes `item` to the top of the stack
+    @input:
+      `T &item` a reference to an element of type `T`
+  */
   void push(const T &item) { list.push_back(item); }
 
   /**
