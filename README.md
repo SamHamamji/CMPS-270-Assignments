@@ -3,28 +3,35 @@ Repository of my CMPS 270 (Software Construction) assignments.
 
 ## Assignment 1
 See [Assignment_1.pdf](/Assignment_1/Assignment_1.pdf)  
-Due date: `Monday, 10 October 2022, 11:59 PM`
+Due date: `Monday, 10 October 2022, 11:59 PM` (Deadline extended)
 
-### Running
-Exercise 1:
-```shell
-gcc -o a.out Utils.c hamming_distance.c && ./a.out
+## Assignment 2
+
+See [Assignment_2.pdf](/Assignment_2/Assignment_2.pdf)  
+Due date: `Sunday, 6 November 2022, 11:59 PM` (Deadline extended)
+
+## Running
+Each assignment contains its own Makefile. To run the exercises, follow these steps:
+
+1) Go to the assigment folder, `X` being the assignment number:
+```sh
+cd Assignment_<X>
 ```
-Exercise 2:
-```shell
-gcc -o a.out Utils.c msb_lsb.c && ./a.out
+2) Compile and run a unique exercise, `Y` being the exercise number:
+```sh
+make Exercise<Y>
 ```
-Exercise 3:
-```shell
-gcc -o a.out my_arrays.c && ./a.out
+3) Compile and run all the exercises at once:
+```sh
+make all
 ```
-Exercise 4:
-```shell
-gcc -o a.out my_pointers.c && ./a.out
+4) Delete all of the compiled files:
+```sh
+make clean
 ```
-Exercise 5:
-```shell
-gcc -o a.out Utils.c more_arrays.c && ./a.out
-```
+
+## Platforms
+Tested on Linux (Manjaro), should work on MacOS. Probably works on Windows too.
+
 ## License
 Licensed under the [MIT](LICENSE) license.
