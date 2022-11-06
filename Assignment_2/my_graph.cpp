@@ -160,6 +160,7 @@ public:
 };
 
 int main() {
+  cout << "-------------------- Graphs and Cycles --------------------" << endl;
   // Testing for multiple graphs
   vector<vector<int>> starts_array = {
       {0, 0, 3, 4, 4, 3, 2},

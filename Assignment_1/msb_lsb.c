@@ -56,7 +56,7 @@ int lsb(unsigned int n) {
     input between 1 and 2,147,483,647 inclusive
 */
 int main(void) {
-  printf("---------- Arrays ----------\n");
+  printf("-------------------- Arrays --------------------\n");
   char input[MAX_INPUT_SIZE];
   unsigned int n;
 
@@ -66,7 +66,6 @@ int main(void) {
     printf("INVALID INPUT! Try again: ");
     fgets(input, sizeof(input), stdin);
   }
-  print_binary(n);
   printf("msb(%u)-lsb(%u) = %d\n", n, n, msb(n) - lsb(n));
   return 0;
 }

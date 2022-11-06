@@ -263,6 +263,8 @@ public:
 };
 
 int main() {
+  cout << "-------------------- Templated Binary Trees --------------------"
+       << endl;
   const list<int> nodesToAdd = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
   const list<int> nodesToCheckSize = {0, 4, 6, 2, 1, -1};
   const list<int> nodesToDelete = {8, 1, 6, 3, 5, 2};
@@ -307,6 +309,6 @@ int main() {
     tree.deleteNode(i);
     cout << "inOrder: ";
     tree.inOrderPrint();
-    cout << endl;
   }
+  cout << endl;
 }

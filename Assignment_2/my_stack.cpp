@@ -110,6 +110,7 @@ template <class T> Stack<T> operator+(Stack<T> a, Stack<T> b) {
 }
 
 int main() {
+  cout << "-------------------- Templated Stacks --------------------" << endl;
   Stack<int> a, b, c;
   for (int i : {1, 2, 3}) {
     a.push(i);

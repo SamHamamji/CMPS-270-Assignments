@@ -47,7 +47,7 @@ char **merge(char *array1[], int size1, char *array2[], int size2) {
   printed (one on each line)
  */
 int main(void) {
-  printf("---------- More Pointers ----------\n");
+  printf("-------------------- More Pointers --------------------\n");
   int size1 = 5;
   char *array1[] = {"ab", "ac", "za", "zb", "zczzz"};
   int size2 = 4;

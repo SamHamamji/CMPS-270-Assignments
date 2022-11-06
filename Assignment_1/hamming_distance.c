@@ -61,7 +61,8 @@ InputType take_input(int *ptr_a, int *ptr_b) {
 int main(void) {
   int a;
   int b;
-  printf("---------- Hamming Distance Calculator ----------\n");
+  printf("-------------------- Hamming Distance Calculator "
+         "--------------------\n");
   printf("Enter pairs of positive integers (separated by a space), and a "
          "negative (non-zero) integer to stop.\n\n");
 
