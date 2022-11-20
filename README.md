@@ -31,7 +31,7 @@ make clean
 ```
 
 ## Platforms
-Tested on Linux (Manjaro), should work on MacOS. Probably works on Windows too.
+Tested on Linux (Manjaro), should work on MacOS. Probably works on Windows, except for Assignment 3 because of the time feature.
 
 ## License
 Licensed under the [MIT](LICENSE) license.
