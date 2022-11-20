@@ -12,30 +12,39 @@ int main() {
   array = (int *)calloc(length, sizeof(int));
   generate_array(array, length, min, max);
 
-  const int simulation_num = 7;
-  const int thread_num[] = {1, 2, 4, 8, 16, 32, 64};
-  CountingThreads threads[simulation_num];
-
   int n;
   struct timeval start;
   struct timeval end;
-  double diff;
-
   gettimeofday(&start, NULL);
   n = sequential_count(array, length, value);
   gettimeofday(&end, NULL);
-  diff = end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) / 1000000.0;
-  printf("sequential: %f sec\n%d\n", diff, n);
+  double diff =
+      end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) / 1000000.0;
+  printf("sequential: %f sec\n%d\n\n", diff, n);
 
-  for (int i = 0; i < simulation_num; i++) {
-    threads_init(&threads[i], "cache", cache_thread, thread_num[i]);
-    gettimeofday(&start, NULL);
-    n = threads_run(threads[i]);
-    gettimeofday(&end, NULL);
-    diff =
-        end.tv_sec - start.tv_sec + (end.tv_usec - start.tv_usec) / 1000000.0;
-    printf("%s %dth: %f sec\n%d\n", threads[i].name, thread_num[i], diff, n);
+  const int thread_types_len = 4;
+  void *(*thread_types[4])(void *args) = {race_condition_thread, mutex_thread,
+                                          private_thread, cache_thread};
+  const char *thread_names[] = {"race_condition", "mutex", "private", "cache"};
+
+  const int simulation_num = 100;
+  const int thread_num[] = {1, 2, 4, 8, 16, 32, 64};
+
+  Results results;
+
+  for (int type_index = 0;
+       type_index < (sizeof(thread_types) / sizeof(void *(*)(void *args)));
+       type_index++) {
+    printf("\n%s thread\n", thread_names[type_index]);
+    for (int thread_num_index = 0;
+         thread_num_index < sizeof(thread_num) / sizeof(int);
+         thread_num_index++) {
+      results = simulate(thread_types[type_index], thread_num[thread_num_index],
+                         n, simulation_num);
+      printf("%d thread(s):\n", thread_num[thread_num_index]);
+      printf("Avg time: %f sec\n", results.avg_time);
+      printf("Sucess frequency: %f\n", results.success_frequency);
+    }
   }
-
   free(array);
 }

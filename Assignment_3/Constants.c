@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int *array;
-const int length = 100000000;
+const int length = 10000000;
 const int value = 1;
 
 int count = 0;

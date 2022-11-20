@@ -3,13 +3,12 @@
 #include "threads/count_private.h"
 #include "threads/count_race.h"
 
-typedef struct countingThreads {
-  char *name;
-  void *(*thread_type)(void *);
-  int thread_num;
-} CountingThreads;
+typedef struct results {
+  double avg_time;
+  double success_frequency;
+} Results;
 
-int threads_run(CountingThreads threads);
+int threads_run(void *(*thread_type)(void *), int thread_num);
 
-void threads_init(CountingThreads *threads, char *name,
-                  void *(*thread_type)(void *), int thread_num);
+Results simulate(void *(*thread_type)(void *), int thread_num,
+                 int expected_count, int sample_size);
