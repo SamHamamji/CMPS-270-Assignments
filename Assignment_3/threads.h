@@ -1,4 +1,6 @@
+#include "threads/count_cache.h"
 #include "threads/count_mutex.h"
+#include "threads/count_private.h"
 #include "threads/count_race.h"
 
 typedef struct countingThreads {

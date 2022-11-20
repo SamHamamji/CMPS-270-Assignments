@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "../Constants.h"
+#include "count_race.h"
 
 void *race_condition_thread(void *args) {
   int *range = (int *)args;

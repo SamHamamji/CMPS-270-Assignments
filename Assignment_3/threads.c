@@ -16,18 +16,31 @@ int threads_run(CountingThreads counting_threads) {
   const int sub_array_length =
       1 + (int)((-1.0 + length) / (counting_threads.thread_num));
 
-  int ranges[counting_threads.thread_num][2];
-  for (int index = 0; index < counting_threads.thread_num; index++) {
-    ranges[index][0] = index * (sub_array_length);
-    if (index == counting_threads.thread_num - 1)
-      ranges[index][1] = length;
+  int args[counting_threads.thread_num][3];
+  for (int id = 0; id < counting_threads.thread_num; id++) {
+    args[id][0] = id * (sub_array_length);
+    if (id == counting_threads.thread_num - 1)
+      args[id][1] = length;
     else
-      ranges[index][1] = (index + 1) * (sub_array_length);
-    pthread_create(&thread_array[index], NULL, counting_threads.thread_type,
-                   (void *)ranges[index]);
+      args[id][1] = (id + 1) * (sub_array_length);
+    args[id][2] = id;
   }
-  for (int index = 0; index < counting_threads.thread_num; index++) {
-    pthread_join(thread_array[index], NULL);
+  for (int id = 0; id < counting_threads.thread_num; id++) {
+    pthread_create(&thread_array[id], NULL, counting_threads.thread_type,
+                   (void *)args[id]);
+  }
+  for (int id = 0; id < counting_threads.thread_num; id++) {
+    pthread_join(thread_array[id], NULL);
+  }
+  if (counting_threads.thread_type == private_thread) {
+    for (int id = 0; id < counting_threads.thread_num; id++) {
+      count += private_count[id];
+    }
+  }
+  if (counting_threads.thread_type == cache_thread) {
+    for (int id = 0; id < counting_threads.thread_num; id++) {
+      count += private_cache_count[id].count;
+    }
   }
   return count;
 }

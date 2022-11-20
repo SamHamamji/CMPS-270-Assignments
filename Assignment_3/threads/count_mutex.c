@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "../Constants.h"
+#include "count_mutex.h"
 
 pthread_mutex_t lock;
 
