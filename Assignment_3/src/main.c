@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
-#include "Constants.h"
-#include "Utils.h"
-#include "threads.h"
+#include "../include/Constants.h"
+#include "../include/Utils.h"
+#include "../include/threads.h"
 
 int main() {
   const int min = 0;

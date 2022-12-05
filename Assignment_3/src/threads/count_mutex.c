@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../Constants.h"
-#include "count_mutex.h"
+#include "../../include/Constants.h"
+#include "../../include/threads/count_mutex.h"
 
 pthread_mutex_t lock;
 

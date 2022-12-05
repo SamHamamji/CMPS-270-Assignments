@@ -1,8 +1,8 @@
 #include <pthread.h>
 #include <sys/time.h>
 
-#include "Constants.h"
-#include "threads.h"
+#include "../include/Constants.h"
+#include "../include/threads.h"
 
 int threads_run(void *(*thread_type)(void *), int thread_num) {
   count = 0;

@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../Constants.h"
-#include "count_race.h"
+#include "../../include/Constants.h"
+#include "../../include/threads/count_race.h"
 
 void *race_condition_thread(void *args) {
   int *range = (int *)args;

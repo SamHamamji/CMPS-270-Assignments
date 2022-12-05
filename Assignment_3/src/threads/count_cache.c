@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../Constants.h"
-#include "count_cache.h"
+#include "../../include/Constants.h"
+#include "../../include/threads/count_cache.h"
 
 void *cache_thread(void *args) {
   int *input = (int *)args;

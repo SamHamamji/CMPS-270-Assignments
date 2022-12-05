@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../Constants.h"
-#include "count_private.h"
+#include "../../include/Constants.h"
+#include "../../include/threads/count_private.h"
 
 void *private_thread(void *args) {
   int *input = (int *)args;

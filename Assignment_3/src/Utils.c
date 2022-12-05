@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "../include/Utils.h"
+
 void print_array(const int *array, const int len) {
   printf("{");
   if (len < 0) {

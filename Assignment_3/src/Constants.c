@@ -1,8 +1,9 @@
-#include "Constants.h"
 #include <stdlib.h>
 
+#include "../include/Constants.h"
+
 int *array;
-const int length = 10000000;
+const int length = 1000000;
 const int value = 1;
 
 int count = 0;
