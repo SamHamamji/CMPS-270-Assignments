@@ -6,10 +6,13 @@ See [Assignment_1.pdf](/Assignment_1/Assignment_1.pdf)
 Due date: `Monday, 10 October 2022, 11:59 PM` (Deadline extended)
 
 ## Assignment 2
-
 See [Assignment_2.pdf](/Assignment_2/Assignment_2.pdf)  
 Due date: `Sunday, 6 November 2022, 11:59 PM` (Deadline extended)
 
+## Assignment 3
+See [Assignment_3.pdf](/Assignment_3/Assignment_3.pdf)  
+Due date: `Sunday, 20 November 2022, 11:59 PM`
+ 	
 ## Running
 Each assignment contains its own Makefile. To run the exercises, follow these steps:
 
